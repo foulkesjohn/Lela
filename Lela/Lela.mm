@@ -80,9 +80,15 @@
         UIGraphicsBeginImageContext(imageSize);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
+  
+    NSMutableArray *windows = [[[UIApplication sharedApplication] windows] mutableCopy];
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    if (![windows containsObject:keyWindow]) {
+      [windows addObject:keyWindow];
+    }
+  
     // Iterate over every window from back to front
-    for (UIWindow *window in [[UIApplication sharedApplication] windows])
+    for (UIWindow *window in windows)
     {
         if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
         {
