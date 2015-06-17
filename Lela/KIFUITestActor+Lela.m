@@ -51,4 +51,9 @@
     }
 }
 
+- (void)setScreenOutputDirectory:(NSString *)outputDirectory
+{
+  [Lela setOutputDirectory:outputDirectory];
+}
+
 @end

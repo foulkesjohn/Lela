@@ -12,4 +12,6 @@
 
 - (void)expectScreenToMatchImageNamed:(NSString *)name;
 - (void)expectScreenToMatchImageNamed:(NSString *)name options:(NSDictionary *)options;
+- (void)setScreenOutputDirectory:(NSString *)outputDirectory;
+
 @end

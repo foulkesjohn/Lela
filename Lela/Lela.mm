@@ -14,6 +14,8 @@
 #include "CompareArgs.h"
 #include "Metric.h"
 
+static NSString *LELA_OUTPUT_DIR;
+
 @implementation Lela
 
 + (NSString *)imageNameForScreenNamed:(NSString *)screenName
@@ -34,7 +36,11 @@
 + (NSString *)directoryForTestRunNamed:(NSString *)name
 {
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    return [[path stringByAppendingPathComponent:@"Lela Tests"] stringByAppendingPathComponent:name];
+    path = [path stringByAppendingString:@"Lela Tests"];
+    if (LELA_OUTPUT_DIR) {
+      path = LELA_OUTPUT_DIR;
+    }
+    return [path stringByAppendingPathComponent:name];
 }
 
 + (NSString *)directoryForExpectedImages
@@ -134,6 +140,11 @@
     }
     
     return success;
+}
+
++ (void)setOutputDirectory:(NSString *)outputDirectory
+{
+  LELA_OUTPUT_DIR = outputDirectory;
 }
 
 @end
