@@ -1,0 +1,3 @@
+@interface LelaConstants : NSObject
+
+@end

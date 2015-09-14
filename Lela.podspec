@@ -11,25 +11,8 @@ Pod::Spec.new do |s|
   s.frameworks   = 'UIKit', 'QuartzCore', 'CoreGraphics'
   s.libraries    = 'c++', 'stdc++'
   s.requires_arc = true
-
-  s.default_subspec = 'XCTest'
-
-  s.subspec 'OCUnit' do |sentest|
-    sentest.source_files = 'Lela/**/*.{h,m,mm}'
-    sentest.dependency 'KIF/OCUnit', '~> 3.0'
-
-    # I would expect the following to be inherited but lint disagrees.
-    sentest.framework = 'SenTestingKit'
-    sentest.xcconfig = { 'OTHER_CFLAGS' => '-DKIF_SENTEST' }
-  end
-
-  s.subspec 'XCTest' do |xctest|
-    xctest.source_files = 'Lela/**/*.{h,m,mm}'
-    xctest.dependency 'KIF/XCTest', '~> 3.0'
-
-    # I would expect the following to be inherited but lint disagrees.
-    xctest.framework = 'XCTest'
-    xctest.xcconfig = { 'OTHER_CFLAGS' => '-DKIF_XCTEST' }
-  end
-
+  s.source_files = 'Lela/**/*.{h,m,mm}'
+  s.dependency     'KIF', '~> 3.0'
+  s.framework = 'XCTest'
+  s.xcconfig = { 'OTHER_CFLAGS' => '-DKIF_XCTEST' }
 end
