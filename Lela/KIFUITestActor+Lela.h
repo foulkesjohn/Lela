@@ -8,6 +8,8 @@
 
 #import <KIF/KIFUITestActor.h>
 
+extern NSString * const LECompareOptionThresholdPixels;
+
 @interface KIFUITestActor (Lela)
 
 - (void)expectScreenToMatchImageNamed:(NSString *)name;

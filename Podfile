@@ -1,5 +1,5 @@
-pod 'KIF', '~> 3.3.0'
+pod 'KIF', '~> 3.0'
 
 target 'DemoTests' do
-    pod 'KIF', '~> 3.3.0'
+    pod 'KIF', '~> 3.0'
 end
