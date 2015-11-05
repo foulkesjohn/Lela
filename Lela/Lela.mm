@@ -125,10 +125,10 @@ static NSString *LELA_OUTPUT_DIR;
                                   -[window bounds].size.height * [[window layer] anchorPoint].y);
 
             // Render the layer hierarchy to the current context
-            UIView* view = [[window subviews] lastObject];
-            if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)])
-                [[[window subviews] lastObject] drawViewHierarchyInRect:imageRect afterScreenUpdates:YES];
-            else
+//            UIView* view = [[window subviews] lastObject];
+//            if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)])
+//                [[[window subviews] lastObject] drawViewHierarchyInRect:imageRect afterScreenUpdates:YES];
+//            else
                 [[window layer] renderInContext:context];
 
             // Restore the context
